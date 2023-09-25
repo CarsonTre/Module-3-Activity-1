@@ -1,14 +1,21 @@
 const db = require('../config/db.manager');
 
+
 // Get all users
-exports.getAllUsers = function (req, res) {
-    const users = db.getAllUsers().then(results => {
-        console.log(results);
+exports.getAllUsers = async function (req, res) {
+    const users = await db.getAllUsers();
+
+    if (users && users.length > 0) {
         res.status(200).json({
             status: 'successful',
-            data: results.recordsets[0]
+            data: users
         });
-    });
+    } else {
+        res.status(200).json({
+            status: 'successful',
+            data: [] 
+        });
+    }
 }
 
 // Get user by ID

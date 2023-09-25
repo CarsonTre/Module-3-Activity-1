@@ -4,12 +4,14 @@ const sqlConfig = {
     password: process.env.PASSWORD,
     database: process.env.DATABASE,
     pool: {
-    idleTimeoutMillis: 60000
+        idleTimeoutMillis: 60000
     },
-    options:{
-    encrypted: true, // for azure
-    trustServerCertificate: false,
-    useUTC: true
+    options: {
+        encrypt: true, // for Azure
+        trustServerCertificate: false,
+        useUTC: true
     }
-}
+};
+
 module.exports = sqlConfig;
+
